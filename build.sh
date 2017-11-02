@@ -5,5 +5,7 @@ if [ $# -eq 0 ]
   else
     tag=$1
 fi
+# Make directory if non-existant
+mkdir -p $DATA_DIR/geonames
 
 docker build -t geonames-mil:$tag .
