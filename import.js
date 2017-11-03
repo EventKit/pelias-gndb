@@ -13,9 +13,14 @@ const validateISOCode = require('./lib/validateISOCode');
 
 const isocode = validateISOCode( config.imports.geonames.countryCode );
 var filenames = [isocode];
+
+logger.info( filenames );
+
 if (isocode === 'ALL') {
   var filenames = require('./metadata/isocodes.json').isocodes;
 }
+
+logger.info( filenames.length );
 
 for (var i = 0; i < filenames.length; i++) {
   const filename = filenames[i];
