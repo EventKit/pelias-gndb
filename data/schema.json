@@ -6,15 +6,5 @@
     "sort_name_rg", "full_name_rg", "full_name_nd_rg", "note", "modify_date",
     "display", "name_rank", "name_link", "transl_cd", "name_modify_date",
     "f_efctv_dt"
-  ],
-  /*"alternate_names": [
-    "alternate_name_id", "geoname_id", "iso_language", "alternate_name",
-    "is_preferred_name", "is_short_name", "is_colloquial", "is_historic"
-  ],
-  "hierarchy": [
-    "parent_id", "child_id", "type"
-  ],
-  "user_tags": [
-    "geoname_id", "tag"
-  ]*/
+  ]
 }
