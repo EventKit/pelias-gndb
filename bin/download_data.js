@@ -1,13 +1,13 @@
 'use strict';
 
 const child_process = require('child_process');
-const logger = require( 'pelias-logger' ).get( 'geonames' );
+const logger = require( 'pelias-logger' ).get( 'geonamesmil' );
 const validateISOCode = require('../lib/validateISOCode');
 
 // use datapath setting from your config file
 const config = require('pelias-config').generate();
-const basepath = config.imports.geonames.datapath;
-const isocode = validateISOCode(config.imports.geonames.countryCode);
+const basepath = config.imports.geonamesmil.datapath;
+const isocode = validateISOCode(config.imports.geonamesmil.countryCode);
 
 var filenames = [isocode];
 if (isocode === 'ALL') {
@@ -35,7 +35,7 @@ for (var i = 0; i < filenames.length; i++) {
   });
 
   job.on('close', (code) => {
-      console.log(`Geonames download finished with exit code ${code}`);
+      console.log(`Geonames.mil download finished with exit code ${code}`);
       process.exitCode = code;
   });
 }

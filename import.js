@@ -1,9 +1,9 @@
 const config = require('pelias-config').generate();
 const _ = require('lodash');
-const logger = require('pelias-logger').get('geonames');
+const logger = require('pelias-logger').get('geonamesmil');
 
-if (_.has(config, 'imports.geonames.adminLookup')) {
-  logger.info('imports.geonames.adminLookup has been deprecated, ' +
+if (_.has(config, 'imports.geonamesmil.adminLookup')) {
+  logger.info('imports.geonamesmil.adminLookup has been deprecated, ' +
               'enable adminLookup using imports.adminLookup.enabled = true');
 }
 
@@ -11,7 +11,7 @@ const resolvers = require( './lib/tasks/resolvers' );
 const task = require('./lib/tasks/import');
 const validateISOCode = require('./lib/validateISOCode');
 
-const isocode = validateISOCode( config.imports.geonames.countryCode );
+const isocode = validateISOCode( config.imports.geonamesmil.countryCode );
 var filenames = [isocode];
 
 logger.info( filenames );

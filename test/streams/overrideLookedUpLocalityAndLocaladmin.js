@@ -13,11 +13,11 @@ function test_stream(input, testedStream, callback) {
 
 tape('peliasDocGenerator', function(test) {
   test.test('document with layer=locality should overwrite locality parent with name and id', function(t) {
-    var input = new Document( 'geonames', 'locality', '17' )
+    var input = new Document( 'geonamesmil', 'locality', '17' )
       .setName('default', 'original geonames name')
       .addParent('locality', 'adminlookup locality name', '27', 'abbr');
 
-    var expected = new Document( 'geonames', 'locality', '17' )
+    var expected = new Document( 'geonamesmil', 'locality', '17' )
       .setName('default', 'original geonames name')
       .addParent('locality', 'original geonames name', '17');
 
@@ -31,11 +31,11 @@ tape('peliasDocGenerator', function(test) {
   });
 
   test.test('document with layer=localadmin should overwrite localadmin parent with name and id', function(t) {
-    var input = new Document( 'geonames', 'localadmin', '17' )
+    var input = new Document( 'geonamesmil', 'localadmin', '17' )
       .setName('default', 'original geonames name')
       .addParent('localadmin', 'adminlookup localadmin name', '27', 'abbr');
 
-    var expected = new Document( 'geonames', 'localadmin', '17' )
+    var expected = new Document( 'geonamesmil', 'localadmin', '17' )
       .setName('default', 'original geonames name')
       .addParent('localadmin', 'original geonames name', '17');
 
@@ -49,7 +49,7 @@ tape('peliasDocGenerator', function(test) {
   });
 
   test.test('document with non-locality/localadmin layer value should not override anything', function(t) {
-    var input = new Document( 'geonames', 'region', '17' )
+    var input = new Document( 'geonamesmil', 'region', '17' )
       .setName('default', 'original geonames name')
       .addParent('localadmin', 'adminlookup localadmin name', '27', 'abbr');
 

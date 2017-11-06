@@ -21,7 +21,7 @@ tape('peliasDocGenerator', function(test) {
       longitude: 21.212121
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonames-mil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 });
 
@@ -64,7 +64,7 @@ tape('peliasDocGenerator', function(test) {
       feature_code: 'rNgA'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonames-mil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setMeta('fcode', 'RNGA')
@@ -90,7 +90,7 @@ tape('peliasDocGenerator', function(test) {
       feature_code: 'Unsupported feature_code'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonames-mil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setMeta('fcode', 'Unsupported feature_code');
@@ -113,7 +113,7 @@ tape('peliasDocGenerator', function(test) {
       population: '127'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonames-mil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setPopulation(127);
@@ -136,7 +136,7 @@ tape('peliasDocGenerator', function(test) {
       population: 'this isn\'t an integer'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonames-mil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 });
 
