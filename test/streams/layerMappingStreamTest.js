@@ -63,10 +63,10 @@ tape('country specific featureCodes', function(test) {
 tape('layerMappingStream', function(test) {
   test.test('stream of raw Geonames entries has layers correctly mapped', function(t) {
     var input = [
-      { feature_code: 'OCN' },
-      { feature_code: 'ADM1' },
-      { feature_code: 'POOL' },
-      { feature_code: 'ADMD' } ];
+      { dsg: 'OCN' },
+      { dsg: 'ADM1' },
+      { dsg: 'POOL' },
+      { dsg: 'ADMD' } ];
     var stream = layerMappingStream.create();
 
     test_stream(input, stream, function(err, results) {
@@ -84,12 +84,12 @@ tape('layerMappingStream', function(test) {
 tape('IDtoLayer', function(test){
   test.test('special cases: the nyc boroughs', function(t){
     var input = [
-    {_id: 5110302, feature_code: 'PPLA2'},
-    {_id: 5125771, feature_code: 'PPLA2'},
-    {_id: 5133273, feature_code: 'PPLA2'},
-    {_id: 5110266, feature_code: 'PPLA2'},
-    {_id: 5139568, feature_code: 'PPLA2'},
-    {_id: 5112223, feature_code: 'PPLA'}];
+    {_id: 5110302, dsg: 'PPLA2'},
+    {_id: 5125771, dsg: 'PPLA2'},
+    {_id: 5133273, dsg: 'PPLA2'},
+    {_id: 5110266, dsg: 'PPLA2'},
+    {_id: 5139568, dsg: 'PPLA2'},
+    {_id: 5112223, dsg: 'PPLA'}];
     var stream = layerMappingStream.create();
 
     test_stream(input,stream,function(err, results){
