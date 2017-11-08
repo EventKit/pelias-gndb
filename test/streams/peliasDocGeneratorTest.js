@@ -17,8 +17,8 @@ tape('peliasDocGenerator', function(test) {
     var input = {
       _id: 12345,
       name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121
+      lat: 12.121212,
+      long: 21.212121
     };
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
@@ -43,8 +43,8 @@ tape('peliasDocGenerator', function(test) {
 
     const input = {
       _id: 12345,
-      latitude: 12.121212,
-      longitude: 21.212121
+      lat: 12.121212,
+      long: 21.212121
     };
 
     test_stream([input], docGenerator, function(err, actual) {
@@ -59,9 +59,9 @@ tape('peliasDocGenerator', function(test) {
     var input = {
       _id: 12345,
       name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      feature_code: 'rNgA'
+      lat: 12.121212,
+      long: 21.212121,
+      dsg: 'rNgA'
     };
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
@@ -85,9 +85,9 @@ tape('peliasDocGenerator', function(test) {
     var input = {
       _id: 12345,
       name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      feature_code: 'Unsupported feature_code'
+      lat: 12.121212,
+      long: 21.212121,
+      dsg: 'Unsupported feature_code'
     };
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
@@ -108,9 +108,9 @@ tape('peliasDocGenerator', function(test) {
     var input = {
       _id: 12345,
       name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      population: '127'
+      lat: 12.121212,
+      lon: 21.212121,
+      pop: '127'
     };
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
@@ -131,9 +131,9 @@ tape('peliasDocGenerator', function(test) {
     var input = {
       _id: 12345,
       name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      population: 'this isn\'t an integer'
+      lat: 12.121212,
+      long: 21.212121,
+      pop: 'this isn\'t an integer'
     };
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
