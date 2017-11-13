@@ -16,7 +16,7 @@ tape('peliasDocGenerator', function(test) {
               'name and centroid supplied', function(t) {
     var input = {
       ufi: 12345,
-      name: 'Record Name',
+      full_name_ro: 'Record Name',
       lat: 12.121212,
       long: 21.212121
     };
@@ -58,7 +58,7 @@ tape('peliasDocGenerator', function(test) {
   test.test('fcode should be set when available and populate categories case-insensitively', function(t) {
     var input = {
       uni: 12345,
-      name: 'Record Name',
+      full_name_ro: 'Record Name',
       lat: 12.121212,
       long: 21.212121,
       dsg: 'rNgA'
@@ -107,7 +107,7 @@ tape('peliasDocGenerator', function(test) {
   test.test('population should be set when parseable as radix 10 integer', function(t) {
     var input = {
       uni: 12345,
-      name: 'Record Name',
+      full_name_ro: 'Record Name',
       lat: 12.121212,
       lon: 21.212121,
       pop: '127'
@@ -130,7 +130,7 @@ tape('peliasDocGenerator', function(test) {
   test.test('population should not be set when unparseable as radix 10 integer', function(t) {
     var input = {
       uni: 12345,
-      name: 'Record Name',
+      full_name_ro: 'Record Name',
       lat: 12.121212,
       long: 21.212121,
       pop: 'this isn\'t an integer'
