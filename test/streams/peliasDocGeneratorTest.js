@@ -15,7 +15,7 @@ tape('peliasDocGenerator', function(test) {
   test.test('basic data should should be returned as Document objects with only ' +
               'name and centroid supplied', function(t) {
     var input = {
-      _id: 12345,
+      ufi: 12345,
       name: 'Record Name',
       lat: 12.121212,
       long: 21.212121
@@ -42,7 +42,7 @@ tape('peliasDocGenerator', function(test) {
     }).create();
 
     const input = {
-      _id: 12345,
+      ufi: 12345,
       lat: 12.121212,
       long: 21.212121
     };
@@ -57,7 +57,7 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('fcode should be set when available and populate categories case-insensitively', function(t) {
     var input = {
-      _id: 12345,
+      uni: 12345,
       name: 'Record Name',
       lat: 12.121212,
       long: 21.212121,
@@ -83,7 +83,7 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('unsupported feature_code should set meta fcode but add no categories', function(t) {
     var input = {
-      _id: 12345,
+      uni: 12345,
       name: 'Record Name',
       lat: 12.121212,
       long: 21.212121,
@@ -106,7 +106,7 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('population should be set when parseable as radix 10 integer', function(t) {
     var input = {
-      _id: 12345,
+      uni: 12345,
       name: 'Record Name',
       lat: 12.121212,
       lon: 21.212121,
@@ -129,7 +129,7 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('population should not be set when unparseable as radix 10 integer', function(t) {
     var input = {
-      _id: 12345,
+      uni: 12345,
       name: 'Record Name',
       lat: 12.121212,
       long: 21.212121,
