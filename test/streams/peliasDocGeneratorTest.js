@@ -15,13 +15,13 @@ tape('peliasDocGenerator', function(test) {
   test.test('basic data should should be returned as Document objects with only ' +
               'name and centroid supplied', function(t) {
     var input = {
-      _id: 12345,
-      name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121
+      ufi: 12345,
+      full_name_ro: 'Record Name',
+      lat: 12.121212,
+      long: 21.212121
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 });
 
@@ -42,9 +42,9 @@ tape('peliasDocGenerator', function(test) {
     }).create();
 
     const input = {
-      _id: 12345,
-      latitude: 12.121212,
-      longitude: 21.212121
+      ufi: 12345,
+      lat: 12.121212,
+      long: 21.212121
     };
 
     test_stream([input], docGenerator, function(err, actual) {
@@ -57,14 +57,14 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('fcode should be set when available and populate categories case-insensitively', function(t) {
     var input = {
-      _id: 12345,
-      name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      feature_code: 'rNgA'
+      uni: 12345,
+      full_name_ro: 'Record Name',
+      lat: 12.121212,
+      long: 21.212121,
+      dsg: 'rNgA'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setMeta('fcode', 'RNGA')
@@ -83,14 +83,14 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('unsupported feature_code should set meta fcode but add no categories', function(t) {
     var input = {
-      _id: 12345,
+      uni: 12345,
       name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      feature_code: 'Unsupported feature_code'
+      lat: 12.121212,
+      long: 21.212121,
+      dsg: 'Unsupported feature_code'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setMeta('fcode', 'Unsupported feature_code');
@@ -106,14 +106,14 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('population should be set when parseable as radix 10 integer', function(t) {
     var input = {
-      _id: 12345,
-      name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      population: '127'
+      uni: 12345,
+      full_name_ro: 'Record Name',
+      lat: 12.121212,
+      lon: 21.212121,
+      pop: '127'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setPopulation(127);
@@ -129,14 +129,14 @@ tape('peliasDocGenerator', function(test) {
 
   test.test('population should not be set when unparseable as radix 10 integer', function(t) {
     var input = {
-      _id: 12345,
-      name: 'Record Name',
-      latitude: 12.121212,
-      longitude: 21.212121,
-      population: 'this isn\'t an integer'
+      uni: 12345,
+      full_name_ro: 'Record Name',
+      lat: 12.121212,
+      long: 21.212121,
+      pop: 'this isn\'t an integer'
     };
 
-    var expected = new Document( 'geonames', 'venue', 12345 )
+    var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
       .setCentroid({ lat: 12.121212, lon: 21.212121 });
 

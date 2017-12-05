@@ -1,0 +1,10 @@
+{
+  "geoname": [
+    "rc", "ufi", "uni", "lat", "long", "dms_lat", "dms_long", "mgrs", "jog",
+    "fc", "dsg", "pc", "cc1", "adm1", "pop", "elev", "cc2", "nt", "lc",
+    "short_form", "generic", "sort_name_ro", "full_name_ro", "full_name_nd_ro",
+    "sort_name_rg", "full_name_rg", "full_name_nd_rg", "note", "modify_date",
+    "display", "name_rank", "name_link", "transl_cd", "name_modify_date",
+    "f_efctv_dt"
+  ]
+}
