@@ -3,13 +3,13 @@
 >[Mapzen](https://www.mapzen.com/) that also powers [Mapzen Search](https://mapzen.com/projects/search). Our
 >official user documentation is [here](https://mapzen.com/documentation/search/).
 
-# Pelias Geonames importer
+# Pelias Geonames.mil importer
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pelias/gitter)
-[![Build Status](https://travis-ci.org/pelias/geonames.png?branch=master)](https://travis-ci.org/pelias/geonames)
-[![Greenkeeper badge](https://badges.greenkeeper.io/pelias/geonames.svg)](https://greenkeeper.io/)
+<!--- [![Build Status](https://travis-ci.org/pelias/geonames.png?branch=master)](https://travis-ci.org/pelias/geonames) --->
+<!--- [![Greenkeeper badge](https://badges.greenkeeper.io/pelias/geonames.svg)](https://greenkeeper.io/) --->
 
-This Node.js package imports data from [Geonames](http://geonames.org/) into
+This Node.js package imports data from [Geonames.mil](http://geonames.nga.mil/gns/html/namefiles.html) into
 [Pelias](http://pelias.io). It includes utilities for downloading and cleaning up the data before
 import.
 
@@ -20,20 +20,20 @@ import.
 ### Installation
 
 ```bash
-git clone https://github.com/pelias/geonames
-cd geonames
+git clone https://github.com/pelias/geonames-mil
+cd geonames-mil
 npm install
 ```
 
 ### Configuration
 The importer can be configured from your local [pelias-config](https://github.com/pelias/config)
-(defaults to `~/pelias.json`) in the `imports.geonames` object:
+(defaults to `~/pelias.json`) in the `imports.geonamesmil` object:
 
 ```json
 {
 	"imports": {
-		"geonames": {
-			"datapath": "/path/to/geonames/data",
+		"geonamesmil": {
+			"datapath": "/path/to/geonamesmil/data",
 			"countryCode": "MX"
 		}
 	}
@@ -42,7 +42,7 @@ The importer can be configured from your local [pelias-config](https://github.co
 
 The following are all *optional*:
 
-  * `datapath`: the path to geonames data. Defaults to a directory inside the importer.
+  * `datapath`: the path to geonames.mil data. Defaults to a directory inside the importer.
   * `countryCode`: the two digit ([ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1)) country code
     for the country for which data will be downloaded and imported. Use `ALL` for all countries.
 
