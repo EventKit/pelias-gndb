@@ -23,7 +23,7 @@ tape('peliasDocGenerator', function(test) {
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, lon: 21.212121 });
+      .setCentroid({ lat: 12.121212, long: 21.212121 });
 
     var docGenerator = peliasDocGenerator.create();
 
@@ -66,7 +66,7 @@ tape('peliasDocGenerator', function(test) {
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, lon: 21.212121 })
+      .setCentroid({ lat: 12.121212, long: 21.212121 })
       .setMeta('fcode', 'RNGA')
       .addCategory('government:military')
       .addCategory('government')
@@ -92,7 +92,7 @@ tape('peliasDocGenerator', function(test) {
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, lon: 21.212121 })
+      .setCentroid({ lat: 12.121212, long: 21.212121 })
       .setMeta('fcode', 'Unsupported feature_code');
 
     var docGenerator = peliasDocGenerator.create();
@@ -109,13 +109,13 @@ tape('peliasDocGenerator', function(test) {
       uni: 12345,
       full_name_ro: 'Record Name',
       lat: 12.121212,
-      lon: 21.212121,
+      long: 21.212121,
       pop: '127'
     };
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, lon: 21.212121 })
+      .setCentroid({ lat: 12.121212, long: 21.212121 })
       .setPopulation(127);
 
     var docGenerator = peliasDocGenerator.create();
@@ -138,7 +138,7 @@ tape('peliasDocGenerator', function(test) {
 
     var expected = new Document( 'geonamesmil', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, lon: 21.212121 });
+      .setCentroid({ lat: 12.121212, long: 21.212121 });
 
     var docGenerator = peliasDocGenerator.create();
 
