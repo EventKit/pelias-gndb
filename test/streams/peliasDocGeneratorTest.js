@@ -15,7 +15,7 @@ tape('peliasDocGenerator', function(test) {
   test.test('basic data should should be returned as Document objects with only ' +
               'name and centroid supplied', function(t) {
     var input = {
-      ufi: 12345,
+      uni: 12345,
       full_name_ro: 'Record Name',
       lat: 12.121212,
       long: 21.212121
@@ -42,7 +42,7 @@ tape('peliasDocGenerator', function(test) {
     }).create();
 
     const input = {
-      ufi: 12345,
+      uni: 12345,
       lat: 12.121212,
       long: 21.212121
     };
