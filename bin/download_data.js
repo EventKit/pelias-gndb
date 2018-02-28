@@ -1,41 +1,32 @@
 'use strict';
 
-const child_process = require('child_process');
-const logger = require( 'pelias-logger' ).get( 'geonamesmil' );
-const validateISOCode = require('../lib/validateISOCode');
+const logger = require( 'pelias-logger' ).get( 'geonamesmil' ),
+      child_process = require('child_process'),
+      validateISOCode = require('../lib/validateISOCode');
 
-// use datapath setting from your config file
 const config = require('pelias-config').generate();
 const basepath = config.imports.geonamesmil.datapath;
 const isocode = validateISOCode(config.imports.geonamesmil.countryCode);
 
-var filenames = [isocode];
-if (isocode === 'ALL') {
-  var filenames = require('../metadata/isocodes.json').isocodes;
-}
+const filenames = require('./metadata/isocodes.json');
+const filename = isocode === 'ALL' ? filenames.all : isocode;
 
-for (var i = 0; i < filenames.length; i++) {
-  const filename = filenames[i];
-  const remoteFilePath = `http://geonames.nga.mil/gns/html/cntyfile/${filename}.zip`;
-  const localFileName = `${basepath}/${filename}.zip`;
 
-  logger.info( 'downloading datafile from:', remoteFilePath );
+const remoteFilePath = `http://geonames.nga.mil/gns/html/cntyfile/${filename}.zip`;
+const localFileName = `${basepath}/${filename}.zip`;
+logger.info( 'downloading datafile from:', remoteFilePath );
+const command = `curl ${remoteFilePath} > ${localFileName}`;
+const job = child_process.exec(command);
 
-  const command = `curl ${remoteFilePath} > ${localFileName}`;
+job.stdout.on('data', (data) => {
+    process.stdout.write(data);
+});
 
-  const job = child_process.exec(command);
-  var data;
+job.stderr.on('data', (data) => {
+    process.stderr.write(data);
+});
 
-  job.stdout.on('data', (data) => {
-      process.stdout.write(data);
-  });
-
-  job.stderr.on('data', (data) => {
-      process.stderr.write(data);
-  });
-
-  job.on('close', (code) => {
-      console.log(`Geonames.mil download finished with exit code ${code}`);
-      process.exitCode = code;
-  });
-}
+job.on('close', (code) => {
+    logger.info(`Geonames.mil download finished with exit code ${code}`);
+    process.exitCode = code;
+});
