@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mapzen/pelias-geonames.git"
+    "url": "https://github.com/venicegeo/geonamesmil.git"
   },
   "keywords": [
     "pelias",
@@ -33,7 +33,7 @@
     "maps"
   ],
   "bugs": {
-    "url": "https://github.com/mapzen/pelias-geonames/issues"
+    "url": "https://github.com/venicegeo/geonamesmil/issues"
   },
   "engines": {
     "node": ">=4.0.0",
@@ -41,7 +41,6 @@
     "elasticsearch": ">=1.1.1"
   },
   "dependencies": {
-    "JSONStream": "^1.0.7",
     "cli-table": "^0.3.0",
     "csv-parse": "^1.3.3",
     "geonames-stream": "^2.0.3",
@@ -53,10 +52,12 @@
     "pelias-model": "5.2.0",
     "pelias-wof-admin-lookup": "4.4.1",
     "request": "^2.34.0",
+    "request-progress": "^3.0.0",
     "through2": "^2.0.1",
     "through2-filter": "^2.0.0",
     "through2-sink": "^1.0.0",
-    "unzipper": "^0.8.3"
+    "unzipper": "^0.8.3",
+    "jsftp": "1.3.2"
   },
   "devDependencies": {
     "deep-diff": "^0.3.3",
