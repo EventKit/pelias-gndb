@@ -2,17 +2,17 @@
 FROM pelias/baseimage
 
 # ensure data dirs exists
-RUN mkdir -p '/data/geonamesmil'
+RUN mkdir -p '/data/gndb'
 
 # download apt dependencies
 # note: this is done in one command in order to keep down the size of intermediate containers
 RUN apt-get update && apt-get install -y bzip2 && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
 
 # clone repo
-RUN git clone https://github.com/venicegeo/geonames-mil.git /code/pelias/geonamesmil
+RUN git clone https://github.com/venicegeo/pelias-gndb.git /code/pelias/gndb
 
 # change working dir
-WORKDIR /code/pelias/geonamesmil
+WORKDIR /code/pelias/gndb
 
 # fetch new branches
 RUN git fetch

@@ -1,9 +1,9 @@
 {
-  "name": "pelias-geonamesmil",
+  "name": "pelias-gndb",
   "version": "0.0.0-semantic-release",
   "author": "mapzen",
   "description": "Open-source geo-coder & reverse geo-coder",
-  "homepage": "https://github.com/mapzen/pelias-geonames",
+  "homepage": "https://github.com/venicegeo/pelias-gndb",
   "license": "MIT",
   "scripts": {
     "download_metadata": "mkdirp metadata && node bin/updateMetadata.js",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/venicegeo/geonamesmil.git"
+    "url": "https://github.com/venicegeo/pelias-gndb.git"
   },
   "keywords": [
     "pelias",
@@ -33,7 +33,7 @@
     "maps"
   ],
   "bugs": {
-    "url": "https://github.com/venicegeo/geonamesmil/issues"
+    "url": "https://github.com/venicegeo/pelias-gndb/issues"
   },
   "engines": {
     "node": ">=4.0.0",

@@ -18,17 +18,17 @@ tape('featureCodeToLayer', function(test) {
   });
 
   test.test('ADM1 maps to region', function(t) {
-    t.equal(featureCodeToLayer('ADM1'), 'region', 'Geonames ADM1 maps to region layer');
+    t.equal(featureCodeToLayer('ADM1'), 'region', 'GNDB ADM1 maps to region layer');
     t.end();
   });
 
   test.test('ADM2 maps to county', function(t) {
-    t.equal(featureCodeToLayer('ADM2'), 'county', 'Geonames ADM2 maps to county layer');
+    t.equal(featureCodeToLayer('ADM2'), 'county', 'GNDB ADM2 maps to county layer');
     t.end();
   });
 
   test.test('ADMD maps to localadmin', function(t) {
-    t.equal(featureCodeToLayer('ADMD'), 'localadmin', 'Geonames ADMD maps to localadmin layer');
+    t.equal(featureCodeToLayer('ADMD'), 'localadmin', 'GNDB ADMD maps to localadmin layer');
     t.end();
   });
 
@@ -40,28 +40,28 @@ tape('featureCodeToLayer', function(test) {
 
 tape('country specific featureCodes', function(test) {
   test.test('ADM1 in GB maps to macroregion', function(t) {
-    t.equal(featureCodeToLayer('ADM1', 'GB'), 'macroregion', 'Geonames ADM1 maps to macroregion in Great Britain');
+    t.equal(featureCodeToLayer('ADM1', 'GB'), 'macroregion', 'GNDB ADM1 maps to macroregion in Great Britain');
     t.end();
   });
 
   test.test('RGN in FR maps to macroregion', function(t) {
-    t.equal(featureCodeToLayer('RGN', 'FR'), 'macroregion', 'Geonames RGN maps to macroregion in France');
+    t.equal(featureCodeToLayer('RGN', 'FR'), 'macroregion', 'GNDB RGN maps to macroregion in France');
     t.end();
   });
 
   test.test('ADM1 in ES maps to macroregion', function(t) {
-    t.equal(featureCodeToLayer('ADM1', 'ES'), 'macroregion', 'Geonames ADM1 maps to macroregion in Spain');
+    t.equal(featureCodeToLayer('ADM1', 'ES'), 'macroregion', 'GNDB ADM1 maps to macroregion in Spain');
     t.end();
   });
 
   test.test('ADM1 in IT maps to macroregion', function(t) {
-    t.equal(featureCodeToLayer('ADM1', 'IT'), 'macroregion', 'Geonames ADM1 maps to macroregion in Italy');
+    t.equal(featureCodeToLayer('ADM1', 'IT'), 'macroregion', 'GNDB ADM1 maps to macroregion in Italy');
     t.end();
   });
 });
 
 tape('layerMappingStream', function(test) {
-  test.test('stream of raw Geonames entries has layers correctly mapped', function(t) {
+  test.test('stream of raw GNDB entries has layers correctly mapped', function(t) {
     var input = [
       { dsg: 'OCN' },
       { dsg: 'ADM1' },
