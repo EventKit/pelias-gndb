@@ -31,6 +31,3 @@ RUN npm run download_metadata
 
 # run tests
 RUN npm test
-
-# download meta data
-RUN npm run download_metadata
