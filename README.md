@@ -41,12 +41,13 @@ The importer can be configured from your local [pelias-config](https://github.co
 The following are all *optional*:
 
   * `datapath`: the path to GNDB data. Defaults to a directory inside the importer.
-  * `countryCode`: the two digit ([ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1)) country code
-    for the country for which data will be downloaded and imported. Use `ALL` for all countries.
+  * `countryCode`: the two digit ([GEC](http://geonames.nga.mil/gns/html/countrycodes.html))
+		(formerly FIPS PUB 10-4) country code for the country for which data will be
+		downloaded and imported. Use `ALL` for all countries.
 
 #### Admin Lookup
 Pelias has the ability to compute the admin hierarchy (county, region, country, etc)
-from [Who's on First](http://whosonfirst.mapzen.com/) data.
+from [Who's on First](https://whosonfirst.org/) data.
 For more info on how admin lookup works, see the documentation for
 [pelias/wof-admin-lookup](https://github.com/pelias/wof-admin-lookup). By default,
 adminLookup is enabled.  To disable, set `imports.adminLookup.enabled` to `false` in Pelias config.
@@ -55,9 +56,11 @@ adminLookup is enabled.  To disable, set `imports.adminLookup.enabled` to `false
 
 ### Usage
 
-A list of supported countries and their codes can be viewed with `npm run countryCodes`
+A list of supported countries and their codes can be viewed at the
+[GEC Page](http://geonames.nga.mil/gns/html/namefiles.html) while currently available
+countries can be found at the [GNDB Namefiles page](http://geonames.nga.mil/gns/html/namefiles.html)
 
-```bash
+<!--```bash
 $> npm run countryCodes
 ┌─────┬──────────────────────────────────────────────┬──────────────────────┬───────────┬───────────┐
 │ ISO │ Country                                      │ Capital              │ Continent │ geonameid │
@@ -66,6 +69,7 @@ $> npm run countryCodes
 │ AF  │ Afghanistan                                  │ Kabul                │ AS        │ 1149361   │
 │ AG  │ Antigua and Barbuda                          │ St. John's           │ NA        │ 3576396   │
 ```
+-->
 
 #### Download the data
 The data corresponding to the countryCode in the pelias config file will be downloaded.
