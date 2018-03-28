@@ -19,7 +19,7 @@ import.
 
 ```bash
 git clone https://github.com/venicegeo/pelias-gndb
-cd gndb
+cd pelias-gndb
 npm install
 ```
 
