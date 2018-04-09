@@ -7,6 +7,7 @@ const logger = require( 'pelias-logger' ).get( 'gndb' ),
       request = require('request'),
       progress = require('request-progress'),
       fs = require('fs'),
+      readline = require('readline'),
       Table = require('cli-table');
 
 const config = require('pelias-config').generate(),
@@ -52,8 +53,8 @@ function overwriteTTYLine(table, logArray) {
   var logLine = table.toString().split('\n')[1];
 
   // Write the progress to console
-  process.stdout.clearLine();
-  process.stdout.cursorTo( 0 );
+  readline.clearLine(process.stdout);
+  readline.cursorTo(process.stdout, 0);
   process.stdout.write( logLine );
 }
 
