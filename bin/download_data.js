@@ -1,6 +1,6 @@
 'use strict';
 
-const logger = require( 'pelias-logger' ).get( 'gndb' ),
+const logger = require( 'pelias-logger' ).get( 'geographicnames' ),
       util = require('util'),
       child_process = require('child_process'),
       validateISOCode = require('../lib/validateISOCode'),
@@ -11,8 +11,8 @@ const logger = require( 'pelias-logger' ).get( 'gndb' ),
       Table = require('cli-table');
 
 const config = require('pelias-config').generate(),
-      basepath = config.imports.gndb.datapath,
-      isocode = validateISOCode(config.imports.gndb.countryCode);
+      basepath = config.imports.geographicnames.datapath,
+      isocode = validateISOCode(config.imports.geographicnames.countryCode);
 
 const filenames = require('../metadata/isocodes.json'),
       filename = isocode === 'ALL' ? filenames.all : isocode;

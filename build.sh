@@ -6,6 +6,6 @@ if [ $# -eq 0 ]
     tag=$1
 fi
 # Make directory if non-existant
-mkdir -p $DATA_DIR/gndb
+mkdir -p $DATA_DIR/geographicnames
 
-docker build -t gndb:$tag .
+docker build -t geographicnames:$tag .

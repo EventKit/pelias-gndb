@@ -3,7 +3,7 @@
 >[Mapzen](https://www.mapzen.com/) that also powers [Mapzen Search](https://mapzen.com/projects/search). Our
 >official user documentation is [here](https://mapzen.com/documentation/search/).
 
-# Pelias GNDB importer
+# Pelias Geographic Names Database importer
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pelias/gitter)
 
@@ -25,13 +25,13 @@ npm install
 
 ### Configuration
 The importer can be configured from your local [pelias-config](https://github.com/pelias/config)
-(defaults to `~/pelias.json`) in the `imports.gndb` object:
+(defaults to `~/pelias.json`) in the `imports.geographicnames` object:
 
 ```json
 {
 	"imports": {
-		"gndb": {
-			"datapath": "/path/to/gndb/data",
+		"geographicnames": {
+			"datapath": "/path/to/geographicnames/data",
 			"countryCode": "MX"
 		}
 	}
@@ -40,7 +40,7 @@ The importer can be configured from your local [pelias-config](https://github.co
 
 The following are all *optional*:
 
-  * `datapath`: the path to GNDB data. Defaults to a directory inside the importer.
+  * `datapath`: the path to Geograhic Names data. Defaults to a directory inside the importer.
   * `countryCode`: the two digit ([GEC](http://geonames.nga.mil/gns/html/countrycodes.html))
 		(formerly FIPS PUB 10-4) country code for the country for which data will be
 		downloaded and imported. Use `ALL` for all countries.
@@ -58,7 +58,7 @@ adminLookup is enabled.  To disable, set `imports.adminLookup.enabled` to `false
 
 A list of supported countries and their codes can be viewed at the
 [GEC Page](http://geonames.nga.mil/gns/html/namefiles.html) while currently available
-countries can be found at the [GNDB Namefiles page](http://geonames.nga.mil/gns/html/namefiles.html)
+countries can be found at the [Geographic Names namefile page](http://geonames.nga.mil/gns/html/namefiles.html)
 
 <!--```bash
 $> npm run countryCodes
