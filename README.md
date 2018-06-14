@@ -29,12 +29,12 @@ The importer can be configured from your local [pelias-config](https://github.co
 
 ```json
 {
-	"imports": {
-		"geographicnames": {
-			"datapath": "/path/to/geographicnames/data",
-			"countryCode": "MX"
-		}
-	}
+    "imports": {
+        "geographicnames": {
+            "datapath": "/path/to/geographicnames/data",
+            "countryCode": "MX"
+        }
+    }
 }
 ```
 
