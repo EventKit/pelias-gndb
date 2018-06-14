@@ -1,17 +1,18 @@
 'use strict';
 
-const logger = require( 'pelias-logger' ).get( 'geonamesmil' ),
+const logger = require( 'pelias-logger' ).get( 'geographicnames' ),
       util = require('util'),
       child_process = require('child_process'),
       validateISOCode = require('../lib/validateISOCode'),
       request = require('request'),
       progress = require('request-progress'),
       fs = require('fs'),
+      readline = require('readline'),
       Table = require('cli-table');
 
 const config = require('pelias-config').generate(),
-      basepath = config.imports.geonamesmil.datapath,
-      isocode = validateISOCode(config.imports.geonamesmil.countryCode);
+      basepath = config.imports.geographicnames.datapath,
+      isocode = validateISOCode(config.imports.geographicnames.countryCode);
 
 const filenames = require('../metadata/isocodes.json'),
       filename = isocode === 'ALL' ? filenames.all : isocode;
@@ -52,8 +53,8 @@ function overwriteTTYLine(table, logArray) {
   var logLine = table.toString().split('\n')[1];
 
   // Write the progress to console
-  process.stdout.clearLine();
-  process.stdout.cursorTo( 0 );
+  readline.clearLine(process.stdout);
+  readline.cursorTo(process.stdout, 0);
   process.stdout.write( logLine );
 }
 

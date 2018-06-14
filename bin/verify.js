@@ -6,7 +6,7 @@ const resolvers = require( '.././lib/tasks/resolvers' );
 
 console.log('verifying local file');
 
-const isocode = config.imports.geonamesmil.countryCode;
+const isocode = config.imports.geographicnames.countryCode;
 const filename = isocode === 'ALL' ? 'allCountries' : isocode;
 const fileStream = resolvers.getLocalFileStream(filename);
 

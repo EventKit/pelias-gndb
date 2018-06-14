@@ -21,9 +21,9 @@ tape('peliasDocGenerator', function(test) {
       long: 21.212121
     };
 
-    var expected = new Document( 'geonamesmil', 'venue', 12345 )
+    var expected = new Document( 'geographicnames', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, long: 21.212121 });
+      .setCentroid({ lat: 12.121212, lon: 21.212121 });
 
     var docGenerator = peliasDocGenerator.create();
 
@@ -64,9 +64,9 @@ tape('peliasDocGenerator', function(test) {
       dsg: 'rNgA'
     };
 
-    var expected = new Document( 'geonamesmil', 'venue', 12345 )
+    var expected = new Document( 'geographicnames', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, long: 21.212121 })
+      .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setMeta('fcode', 'RNGA')
       .addCategory('government:military')
       .addCategory('government')
@@ -84,15 +84,15 @@ tape('peliasDocGenerator', function(test) {
   test.test('unsupported feature_code should set meta fcode but add no categories', function(t) {
     var input = {
       uni: 12345,
-      name: 'Record Name',
+      full_name_ro: 'Record Name',
       lat: 12.121212,
       long: 21.212121,
       dsg: 'Unsupported feature_code'
     };
 
-    var expected = new Document( 'geonamesmil', 'venue', 12345 )
+    var expected = new Document( 'geographicnames', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, long: 21.212121 })
+      .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setMeta('fcode', 'Unsupported feature_code');
 
     var docGenerator = peliasDocGenerator.create();
@@ -113,9 +113,9 @@ tape('peliasDocGenerator', function(test) {
       pop: '127'
     };
 
-    var expected = new Document( 'geonamesmil', 'venue', 12345 )
+    var expected = new Document( 'geographicnames', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, long: 21.212121 })
+      .setCentroid({ lat: 12.121212, lon: 21.212121 })
       .setPopulation(127);
 
     var docGenerator = peliasDocGenerator.create();
@@ -136,9 +136,9 @@ tape('peliasDocGenerator', function(test) {
       pop: 'this isn\'t an integer'
     };
 
-    var expected = new Document( 'geonamesmil', 'venue', 12345 )
+    var expected = new Document( 'geographicnames', 'venue', 12345 )
       .setName('default', 'Record Name')
-      .setCentroid({ lat: 12.121212, long: 21.212121 });
+      .setCentroid({ lat: 12.121212, lon: 21.212121 });
 
     var docGenerator = peliasDocGenerator.create();
 
