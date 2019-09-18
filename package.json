@@ -15,7 +15,7 @@
     "postinstall": "npm run download_metadata",
     "start": "node --max_old_space_size=4096 import.js",
     "test": "NODE_ENV=test npm run units",
-    "travis": "npm run check-dependencies && npm test && npm run functional",
+    "travis": "npm run check-dependencies && npm test",
     "units": "node test/units.js | tap-dot",
     "validate": "npm ls",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
