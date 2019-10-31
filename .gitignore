@@ -3,5 +3,3 @@ node_modules
 .DS_Store
 /data/*
 !/data/specialCases.json
-/metadata/*
-!/metadata/category_mapping.json
