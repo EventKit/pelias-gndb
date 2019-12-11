@@ -49,7 +49,7 @@
     "pelias-config": "2.13.0",
     "pelias-dbclient": "2.3.0",
     "pelias-logger": "0.3.0",
-    "pelias-model": "5.2.0",
+    "pelias-model": "^7.0.0",
     "pelias-wof-admin-lookup": "4.4.1",
     "request": "2.88.0",
     "request-progress": "3.0.0",
