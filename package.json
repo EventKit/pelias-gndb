@@ -46,7 +46,6 @@
     "jsdom": "15.1.1",
     "lodash": "4.17.15",
     "mkdirp": "0.5.1",
-    "pelias-blacklist-stream": "1.2.0",
     "pelias-config": "4.8.0",
     "pelias-dbclient": "2.13.0",
     "pelias-logger": "1.4.1",
