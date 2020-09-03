@@ -3,23 +3,21 @@
   "version": "0.0.0-semantic-release",
   "author": "mapzen",
   "description": "Open-source geo-coder & reverse geo-coder",
-  "homepage": "https://github.com/venicegeo/pelias-gndb",
+  "homepage": "https://github.com/eventkit/pelias-gndb",
   "license": "MIT",
   "scripts": {
     "download_metadata": "mkdirp metadata && node bin/updateMetadata.js",
-    "download": "node bin/download_data.js",
+    "download": "./bin/download",
     "countryCodes": "node bin/viewCountryCodes.js",
-    "functional": "NODE_ENV=test node test/functional.js | tap-dot",
-    "import": "npm run start",
+    "functional": "./bin/functional",
+    "import": "./bin/start",
     "lint": "jshint .",
     "postinstall": "npm run download_metadata",
-    "start": "node --max_old_space_size=4096 import.js",
+    "start": "./bin/start",
     "test": "NODE_ENV=test npm run units",
-    "travis": "npm run check-dependencies && npm test",
-    "units": "node test/units.js | tap-dot",
-    "validate": "npm ls",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "check-dependencies": "node_modules/.bin/npm-check --production"
+    "travis": "npm test && npm run functional",
+    "units": "./bin/units",
+    "validate": "npm ls"
   },
   "repository": {
     "type": "git",
@@ -36,44 +34,48 @@
     "url": "https://github.com/venicegeo/pelias-gndb/issues"
   },
   "engines": {
-    "node": ">=4.0.0",
-    "npm": ">=1.4.3",
-    "elasticsearch": ">=1.1.1"
+    "node": ">=10.0.0"
   },
   "dependencies": {
-    "cli-table": "0.3.1",
+    "JSONStream": "^1.0.7",
+    "bufferutil": "^4.0.1",
+    "canvas": "^2.6.1",
+    "cli-table": "^0.3.0",
+    "csv-parse": "^4.8.2",
     "geonames-stream": "2.2.0",
-    "jsdom": "15.1.1",
-    "lodash": "4.17.15",
-    "mkdirp": "0.5.1",
-    "pelias-config": "4.8.0",
-    "pelias-dbclient": "2.13.0",
-    "pelias-logger": "1.4.1",
-    "pelias-model": "7.1.0",
-    "pelias-wof-admin-lookup": "6.0.0",
-    "request": "2.88.0",
-    "request-progress": "3.0.0",
-    "split2": "2.2.0",
-    "through2": "2.0.5",
-    "through2-filter": "2.0.0",
-    "through2-sink": "1.0.0",
-    "unzipper": "0.8.14"
+    "jsdom": "16.4.0",
+    "lodash": "^4.17.15",
+    "mkdirp": "^1.0.0",
+    "pelias-blacklist-stream": "^1.2.0",
+    "pelias-config": "https://github.com/eventkit/pelias-config#syncUpstream",
+    "pelias-dbclient": "https://github.com/eventkit/pelias-dbclient#syncUpstream",
+    "pelias-logger": "^1.4.1",
+    "pelias-model": "^7.1.0",
+    "pelias-wof-admin-lookup": "^7.3.0",
+    "request": "^2.34.0",
+    "split2": "^3.2.2",
+    "through2": "^3.0.0",
+    "through2-filter": "^3.0.0",
+    "through2-sink": "^1.0.0",
+    "unzipper": "^0.10.0",
+    "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
-    "deep-diff": "0.3.8",
-    "event-stream": "3.3.5",
-    "npm-check": "git://github.com/orangejulius/npm-check.git#disable-update-check",
-    "pelias-mock-logger": "1.5.0",
-    "precommit-hook": "3.0.0",
-    "proxyquire": "1.8.0",
-    "semantic-release": "8.2.3",
-    "tap-dot": "1.0.5",
-    "tape": "4.11.0"
+    "deep-diff": "^1.0.0",
+    "pelias-mock-logger": "^1.1.0",
+    "precommit-hook": "^3.0.0",
+    "proxyquire": "^2.1.3",
+    "stream-mock": "^2.0.3",
+    "tap-dot": "^2.0.0",
+    "tape": "^4.11.0"
   },
   "pre-commit": [
     "lint",
     "validate",
-    "test",
-    "check-dependencies"
-  ]
+    "test"
+  ],
+  "release": {
+    "branch": "master",
+    "success": []
+  }
 }

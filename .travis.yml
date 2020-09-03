@@ -3,15 +3,17 @@ language: node_js
 notifications:
   email: false
 node_js:
-  - 8
   - 10
-matrix:
-  fast_finish: true
-env:
-  global:
-    - BUILD_LEADER_ID=2
+  - 12
 script: npm run travis
 before_install:
-  - npm i -g npm@^3.0.0
-before_script:
-  - npm prune
+  - npm i -g npm
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+jobs:
+  include:
+    - stage: release
+      node_js: 12
+      script: curl "https://raw.githubusercontent.com/pelias/ci-tools/master/semantic-release.sh" | bash -
+      if: (branch = master) AND ( type = push )
