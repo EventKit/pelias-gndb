@@ -10,7 +10,7 @@ const stream_mock = require('stream-mock');
 tape('functional test importing Singapore', function(t) {
   const basePath = path.resolve(__dirname);
   const expectedPath = path.join(basePath, 'data', 'expected.json');
-  const inputFile = path.join(basePath, 'data', 'SG.zip');
+  const inputFile = path.join(basePath, 'data', 'at.zip');
 
   const sourceStream = fs.createReadStream(inputFile);
   const expected = JSON.parse(fs.readFileSync(expectedPath));
