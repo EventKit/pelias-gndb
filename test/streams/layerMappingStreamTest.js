@@ -1,14 +1,16 @@
 var tape = require('tape');
-var event_stream = require('event-stream');
 
 var layerMappingStream = require('../../lib/streams/layerMappingStream');
 var featureCodeToLayer = layerMappingStream.featureCodeToLayer;
 
-function test_stream(input, testedStream, callback) {
-    var input_stream = event_stream.readArray(input);
-    var destination_stream = event_stream.writeArray(callback);
+const stream_mock = require('stream-mock');
 
-    input_stream.pipe(testedStream).pipe(destination_stream);
+function test_stream(input, testedStream, callback) {
+  const reader = new stream_mock.ObjectReadableMock(input);
+  const writer = new stream_mock.ObjectWritableMock();
+  writer.on('error', (e) => callback(e));
+  writer.on('finish', () => callback(null, writer.data));
+  reader.pipe(testedStream).pipe(writer);
 }
 
 tape('featureCodeToLayer', function(test) {
@@ -18,17 +20,17 @@ tape('featureCodeToLayer', function(test) {
   });
 
   test.test('ADM1 maps to region', function(t) {
-    t.equal(featureCodeToLayer('ADM1'), 'region', 'geographicnames ADM1 maps to region layer');
+    t.equal(featureCodeToLayer('ADM1'), 'region', 'Geographicnames ADM1 maps to region layer');
     t.end();
   });
 
   test.test('ADM2 maps to county', function(t) {
-    t.equal(featureCodeToLayer('ADM2'), 'county', 'geographicnames ADM2 maps to county layer');
+    t.equal(featureCodeToLayer('ADM2'), 'county', 'Geographicnames ADM2 maps to county layer');
     t.end();
   });
 
   test.test('ADMD maps to localadmin', function(t) {
-    t.equal(featureCodeToLayer('ADMD'), 'localadmin', 'geographicnames ADMD maps to localadmin layer');
+    t.equal(featureCodeToLayer('ADMD'), 'localadmin', 'Geographicnames ADMD maps to localadmin layer');
     t.end();
   });
 
@@ -41,28 +43,48 @@ tape('featureCodeToLayer', function(test) {
 tape('country specific featureCodes', function(test) {
   test.test('ADM1 in GB maps to macroregion', function(t) {
     t.equal(featureCodeToLayer('ADM1', 'GB'), 'macroregion',
-        'geographicnames ADM1 maps to macroregion in Great Britain');
+        'Geographicnames ADM1 maps to macroregion in Great Britain');
     t.end();
   });
 
-  test.test('RGN in FR maps to macroregion', function(t) {
-    t.equal(featureCodeToLayer('RGN', 'FR'), 'macroregion', 'geographicnames RGN maps to macroregion in France');
+  test.test('ADM1 in FR maps to macroregion', function(t) {
+    t.equal(featureCodeToLayer('ADM1', 'FR'), 'macroregion', 'Geographicnames ADM1 maps to macroregion in France');
+    t.end();
+  });
+
+  test.test('ADM2 in FR maps to region', function(t) {
+    t.equal(featureCodeToLayer('ADM2', 'FR'), 'region', 'Geographicnames ADM2 maps to region in France');
+    t.end();
+  });
+
+  test.test('ADM3 in FR maps to macrocounty', function(t) {
+    t.equal(featureCodeToLayer('ADM3', 'FR'), 'macrocounty', 'Geographicnames ADM3 maps to macrocounty in France');
+    t.end();
+  });
+
+  test.test('ADM4 in FR maps to locality', function(t) {
+    t.equal(featureCodeToLayer('ADM4', 'FR'), 'locality', 'Geographicnames ADM4 maps to locality in France');
+    t.end();
+  });
+
+  test.test('LCTY in FR maps to venue', function(t) {
+    t.equal(featureCodeToLayer('LCTY', 'FR'), 'venue', 'Geographicnames LCTY maps to venue in France');
     t.end();
   });
 
   test.test('ADM1 in ES maps to macroregion', function(t) {
-    t.equal(featureCodeToLayer('ADM1', 'ES'), 'macroregion', 'geographicnames ADM1 maps to macroregion in Spain');
+    t.equal(featureCodeToLayer('ADM1', 'ES'), 'macroregion', 'Geographicnames ADM1 maps to macroregion in Spain');
     t.end();
   });
 
   test.test('ADM1 in IT maps to macroregion', function(t) {
-    t.equal(featureCodeToLayer('ADM1', 'IT'), 'macroregion', 'geographicnames ADM1 maps to macroregion in Italy');
+    t.equal(featureCodeToLayer('ADM1', 'IT'), 'macroregion', 'Geographicnames ADM1 maps to macroregion in Italy');
     t.end();
   });
 });
 
 tape('layerMappingStream', function(test) {
-  test.test('stream of raw geographicnames entries has layers correctly mapped', function(t) {
+  test.test('stream of raw Geographicnames entries has layers correctly mapped', function(t) {
     var input = [
       { dsg: 'OCN' },
       { dsg: 'ADM1' },
